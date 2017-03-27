@@ -2,3 +2,4 @@
 
 aws_cli_name: awscli
 aws_cli_users: {}
+aws_cli_config: {}
