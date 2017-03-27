@@ -1,0 +1,3 @@
+[default]
+output = {{ aws_cli_config.output | default('json') }}
+region = {{ aws_cli_config.region | default('') }}

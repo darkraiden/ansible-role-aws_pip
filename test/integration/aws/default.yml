@@ -1,0 +1,15 @@
+---
+
+- hosts: aws
+  become: True
+  roles:
+    - ansible-role-aws_pip
+  pre_tasks:
+    - name: Create a test user
+      user:
+        name: test
+        shell: /bin/bash
+        comment: Test user
+        createhome: True
+  vars_files:
+    - local/shared.yml
