@@ -2,7 +2,7 @@
 
 - hosts: aws
   roles:
-    - ansible-role-aws_pip
+    - role_under_test
   pre_tasks:
     - name: Create a test user
       user:
@@ -11,4 +11,4 @@
         comment: Test user
         createhome: True
   vars_files:
-    - roles/role_under_test/local/shared.yml
+    - shared.yml
