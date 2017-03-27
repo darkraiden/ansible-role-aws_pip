@@ -9,35 +9,35 @@ galaxy_info:
   min_ansible_version: 2.0
   platforms:
   - name: Ubuntu
-   versions:
-   - all
-   - lucid
-   - maverick
-   - natty
-   - oneiric
-   - precise
-   - quantal
-   - raring
-   - saucy
-   - trusty
-   - utopic
-   - vivid
-   - wily
-   - xenial
-   - yakkety
+    versions:
+    - all
+    - lucid
+    - maverick
+    - natty
+    - oneiric
+    - precise
+    - quantal
+    - raring
+    - saucy
+    - trusty
+    - utopic
+    - vivid
+    - wily
+    - xenial
+    - yakkety
   - name: Debian
-   versions:
-   - all
-   - etch
-   - jessie
-   - lenny
-   - sid
-   - squeeze
-   - stretch
-   - wheezy
+    versions:
+    - all
+    - etch
+    - jessie
+    - lenny
+    - sid
+    - squeeze
+    - stretch
+    - wheezy
   - name: EL
-   versions:
-   - 6
-   - 7
+    versions:
+    - 6
+    - 7
 
   galaxy_tags: []
