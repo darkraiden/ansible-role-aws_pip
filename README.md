@@ -1,31 +1,119 @@
-Role Name
+Ansible Role AWS cli
 =========
 
-A brief description of the role goes here.
+Ansible role which installs and configure the AWS cli.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
-
-Role Variables
---------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+None
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+* [darkraiden.ansible-pip](https://galaxy.ansible.com/darkraiden/ansible-pip)
+
+Role Variables
+--------------
+
+Available variables are listed below, along with default values (see `defaults/main.yml`):
+
+```
+aws_cli_name: awscli
+```
+
+Name of the AWS cli package to be installed by `pip`.
+
+```
+aws_cli_users: {}
+```
+
+This dictionary will configure the `.aws/credentials` file for each defined user. It accepts the following parameters:
+
+* **username** - the user name (Required);
+* **group** - The creds file's group, if not defined it will use the username as default group;
+* **access_key** - AWS Access Key ID; and
+* **secret_key** - AWS Secret Access Key.
+
+```
+aws_cli_config: {}
+```
+
+This dictionary will configure the `.aws/config` file for each defined user. It accepts the following parameters:
+
+* **output** - The aws cli's output format; and
+* **region** - The AWS region.
+
+Test Kitchen
+--------------
+
+### Install Deps
+
+```
+$ bundle
+```
+
+### VMs
+
+This kitchen configuration comes with different VMs:
+
+* centos7
+* xenial
+
+If you want to test the role using all of those machines, just run the commands below as they are. If you want to test the role on one system only, append to the commands below the VM name.
+
+e.g.
+
+```
+$ bundle exec kitchen converge centos7
+```
+
+To converge the `centos7` VM only.
+
+### Create the VM
+
+```
+$ bundle exec kitchen create
+```
+
+### Converge your role
+
+```
+$ bundle exec kitchen converge
+```
+
+### Run serverspec tests
+
+```
+$ bundle exec kitchen verify
+```
+
+**NB**: To run `verify` the VM must be converged first.
+
+### Destroy the VM
+
+```
+$ bundle exec kitchen destroy
+```
+
+### Run Create/Converge/Verify/Destroy in one command
+
+```
+$ bundle exec kitchen test
+```
+
+### Write your tests
+
+You can write your own test by adding a new file or editing the existing one living in the `test/integration/pip/serverspec/localhost` directory. More info about how to write serverspec test can be found [here](http://serverspec.org/).
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
+```
+    - hosts: all
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: darkraiden.ansible-aws_cli }
+```
 
 License
 -------
@@ -35,4 +123,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+An optional sectiThis role was created in 2017 by [Davide Di Mauro](https://github.com/darkraiden).on for the role authors to include contact information, or a website (HTML is not allowed).
