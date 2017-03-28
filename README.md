@@ -1,6 +1,8 @@
 Ansible Role AWS cli
 =========
 
+[![Build Status](https://travis-ci.org/darkraiden/ansible-role-aws_pip.svg?branch=master)](https://travis-ci.org/darkraiden/ansible-role-aws_pip)
+
 Ansible role which installs and configure the AWS cli.
 
 Requirements
