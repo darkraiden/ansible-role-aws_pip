@@ -3,6 +3,15 @@ FROM tcnksm/centos-ruby
 # Install Ansible
 RUN yum install -y git epel-release
 RUN yum install -y ansible
+RUN yum install -y wget
+RUN yum install -y sudo
+
+# Upgrade Python
+RUN wget http://python.org/ftp/python/2.7.13/Python-2.7.13.tar.xz &&\
+    tar xf Python-2.7.13.tar.xz &&\
+    cd Python-2.7.13 &&\
+    ./configure --prefix=/usr/local --enable-unicode=ucs4 --enable-shared LDFLAGS="-Wl,-rpath /usr/local/lib" &&\
+    make && make install
 
 # Install Ansible inventory file
 RUN printf "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
