@@ -106,7 +106,7 @@ $ bundle exec kitchen test
 
 ### Write your tests
 
-You can write your own test by adding a new file or editing the existing one living in the `test/integration/pip/serverspec/localhost` directory. More info about how to write serverspec test can be found [here](http://serverspec.org/).
+You can write your own test by adding a new file or editing the existing one living in the `test/integration/aws/serverspec/localhost` directory. More info about how to write serverspec test can be found [here](http://serverspec.org/).
 
 Example Playbook
 ----------------
@@ -125,4 +125,4 @@ BSD
 Author Information
 ------------------
 
-An optional sectiThis role was created in 2017 by [Davide Di Mauro](https://github.com/darkraiden).on for the role authors to include contact information, or a website (HTML is not allowed).
+An optional sectiThis role was created in 2017 by [Davide Di Mauro](https://github.com/darkraiden).
