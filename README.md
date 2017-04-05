@@ -125,4 +125,4 @@ BSD
 Author Information
 ------------------
 
-An optional sectiThis role was created in 2017 by [Davide Di Mauro](https://github.com/darkraiden).
+This role was created in 2017 by [Davide Di Mauro](https://github.com/darkraiden).
