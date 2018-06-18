@@ -1,8 +1,9 @@
 ---
 
-- hosts: aws
+- hosts: test-kitchen
   become: True
   roles:
+    - darkraiden.ansible-pip
     - ansible-role-aws_pip
   pre_tasks:
     - name: Create a test user
