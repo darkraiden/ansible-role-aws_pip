@@ -4,6 +4,9 @@ aws_cli_users:
   - username: test
     access_key: anAccessKey
     secret_key: aSecretKey
+  - username: root
+    access_key: anAccessKey
+    secret_key: aSecretKey
 
 aws_cli_config:
     output: json
