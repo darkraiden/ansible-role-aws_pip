@@ -19,3 +19,4 @@
         shell: /bin/bash
         comment: Test user
         createhome: True
+      changed_when: False
