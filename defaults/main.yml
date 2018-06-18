@@ -1,5 +1,6 @@
 ---
 
 aws_cli_name: awscli
+aws_cli_version: 1.15.40
 aws_cli_users: {}
 aws_cli_config: {}
