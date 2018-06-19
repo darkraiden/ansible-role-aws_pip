@@ -31,7 +31,6 @@ platforms:
   - name: fedora-25
   - name: fedora-24
   - name: debian-8
-  - name: debian-7
 
 suites:
   - name: aws
