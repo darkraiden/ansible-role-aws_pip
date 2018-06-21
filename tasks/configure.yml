@@ -4,10 +4,11 @@
   become: True
   become_user: "{{ item.username }}"
   file:
-    path: "$HOME/.aws"
+    path: "/home/{{ item.username }}/.aws"
     state: directory
     owner: "{{ item.username }}"
     group: "{{ item.group | default(item.username) }}"
+  when: item.username != "root"
   with_items: "{{ aws_cli_users }}"
 
 - name: Create AWS creds file
@@ -15,9 +16,10 @@
   become_user: "{{ item.username }}"
   template:
     src: aws_creds.j2
-    dest: "$HOME/.aws/credentials"
+    dest: "/home/{{ item.username }}/.aws/credentials"
     owner: "{{ item.username }}"
     group: "{{ item.group | default(item.username) }}"
+  when: item.username != "root"
   with_items: "{{ aws_cli_users }}"
 
 - name: Create AWS config file
@@ -25,7 +27,41 @@
   become_user: "{{ item.username }}"
   template:
     src: aws_config.j2
-    dest: "$HOME/.aws/config"
+    dest: "/home/{{ item.username }}/.aws/config"
     owner: "{{ item.username }}"
     group: "{{ item.group | default(item.username) }}"
+  when: item.username != "root"
+  with_items: "{{ aws_cli_users }}"
+
+- name: Ensure AWS directory exists for root user
+  become: True
+  become_user: root
+  file:
+    path: /root/.aws
+    state: directory
+    owner: root
+    group: root
+  when: item.username == "root"
+  with_items: "{{ aws_cli_users }}"
+
+- name: Create AWS creds file for root user
+  become: True
+  become_user: root
+  template:
+    src: aws_creds.j2
+    dest: /root/.aws/credentials
+    owner: root
+    group: root
+  when: item.username == "root"
+  with_items: "{{ aws_cli_users }}"
+
+- name: Create AWS config file for root
+  become: True
+  become_user: root
+  template:
+    src: aws_config.j2
+    dest: /root/.aws/config
+    owner: root
+    group: root
+  when: item.username == "root"
   with_items: "{{ aws_cli_users }}"

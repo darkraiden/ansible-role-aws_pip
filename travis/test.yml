@@ -1,0 +1,22 @@
+---
+- hosts: all
+  roles:
+    - darkraiden.ansible-pip
+    - darkraiden.ansible-aws
+  vars:
+    aws_cli_users:
+      - username: test
+        access_key: anAccessKey
+        secret_key: aSecretKey
+    aws_cli_config:
+        output: json
+        region: eu-west-1
+
+  pre_tasks:
+    - name: Create a test user
+      user:
+        name: test
+        shell: /bin/bash
+        comment: Test user
+        createhome: True
+      changed_when: False

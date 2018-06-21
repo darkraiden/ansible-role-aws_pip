@@ -3,7 +3,7 @@ dependencies:
 
 galaxy_info:
   author: darkraiden
-  description: Install pip AWS cli
+  description: Install the AWS cli via Python pip
   company: ""
   license: BSD
   min_ansible_version: 2.0
@@ -37,7 +37,10 @@ galaxy_info:
     - wheezy
   - name: EL
     versions:
-    - 6
     - 7
 
-  galaxy_tags: []
+  galaxy_tags:
+    - awscli
+    - aws-cli
+    - pip
+    - cli

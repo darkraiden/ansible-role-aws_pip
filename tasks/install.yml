@@ -4,4 +4,5 @@
   become: True
   pip:
     name: "{{ aws_cli_name }}"
-    state: latest
+    version: "{{ aws_cli_version }}"
+    state: present
