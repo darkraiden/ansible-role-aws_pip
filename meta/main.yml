@@ -41,6 +41,6 @@ galaxy_info:
 
   galaxy_tags:
     - awscli
-    - aws-cli
+    - aws
     - pip
     - cli
